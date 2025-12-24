@@ -334,7 +334,7 @@ body.is-transitioning {
 
 
 /* RESPONSIVE BREAKPOINTS */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .page {
     flex-direction: column;
     padding: min(3.5vw, 48px) min(1.8vw, 24px);
@@ -347,7 +347,7 @@ body.is-transitioning {
   .right-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+} */
 
 /* ===============================
    MOBILE (Index page)
