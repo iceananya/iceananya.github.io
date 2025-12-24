@@ -459,9 +459,17 @@ body.is-transitioning {
   }
 
   /* Disable hover behavior on mobile */
-  .card:hover .card-info {
-    opacity: 0;
+  .card-info {
+    opacity: 1;
     transform: none;
+    bottom: 2.6rem;
+    left: 1rem;
+    max-width: calc(100% - 32px);
+    
+  }
+
+  .card-sub {
+    display: none;
   }
 
   .card::after {
@@ -470,7 +478,8 @@ body.is-transitioning {
 
   /* ===== Card text ===== */
   .card-title {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600 !important;
   }
 
   .card-sub {
