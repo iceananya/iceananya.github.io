@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/Favicon_SVG.svg">
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="assets/Favicon_32px.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicon_16px.png">
+  <title>Ice Ananya</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<div id="portalEffect" class="portal"></div>
+
+<div class="page">
+
+  <!-- LEFT COLUMN -->
+  <aside class="left-col">
+    <div class="left-top">
+      <h1 class="title">Hello <span class="wave">🖐🏻</span> I'm Ice Ananya</h1>
+      <p class="lead">
+        As a Product designer, one of my favorite things
+        to do is come up with innovative approaches to enhancing a project 
+        so that it can ultimately benefit the most people.
+      </p>
+    </div>
+
+    <div class="left-bottom">
+      <div class="profile">
+        <img src="assets/Photo_Ananya.png" class="profile-img" alt="Profile" />
+        <div class="profile-meta">
+          <div class="location">Bkk, Thailand</div>
+          <div class="email">📩 ananya.vnk@gmail.com</div>
+          <div class="profile-buttons">
+            <a class="btn" href="#">🔗 LinkedIn</a>            
+            <a class="btn" href="#">📁 Resume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT GRID -->
+  <main class="right-grid">
+
+    <!-- COLUMN 1 -->
+    <a class="card card-col1-top card-tall" href="zTerminal.html" data-nav="true">
+      <video autoplay muted loop playsinline src="assets/zTerminal.mp4"></video>
+
+      <div class="card-info">
+        <h3 class="card-title">zTerminal</h3>
+        <p class="card-sub">
+          A single hub where real-time blockchain data, social signals, and AI converge
+        </p>
+      </div>
+
+      <div class="chip-group">
+        <div class="chip">CRYPTO AI</div>
+        <div class="chip year">2025</div>
+      </div>
+    </a>
+
+
+    <a class="card card-col1-bottom card-short" href="regalia.html">
+      <video autoplay muted loop playsinline src="assets/regalia.mp4"></video>
+      <div class="card-info">
+        <h3 class="card-title">Regalia</h3>
+        <p class="card-sub">The 'Lego' of agent creation, empowering anyone to transform their imagination into functional agents with ease</p>
+      </div>
+      <div class="chip-group">
+        <div class="chip">AI AGENT</div>
+        <div class="chip year">2025</div>
+      </div>  
+    </a>
+
+    <!-- COLUMN 2 -->
+    <a class="card card-col2-top card-short" href="Radiant.html">
+      <video autoplay muted loop playsinline src="assets/radiant.mp4"></video>
+      <div class="card-info">
+        <h3 class="card-title">Radiant</h3>
+        <p class="card-sub">A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure.</p>
+      </div>
+      <div class="chip-group">
+        <div class="chip">GAMING</div>
+      <div class="chip year">2024</div>
+      </div>
+      
+    </a>
+
+    <a class="card card-col2-bottom card-tall" href="Nexus.html">
+      <video autoplay muted loop playsinline src="assets/Nexus.mp4"></video>
+      <div class="card-info">
+        <h3 class="card-title">Nexus</h3>
+        <p class="card-sub">A socail layer by Zentry. Transforming your daily X activity into rewards.</p>
+      </div>
+      <div class="chip-group">
+        <div class="chip">SOCIALFI</div>
+      <div class="chip year">2024</div>
+      </div>
+      
+    </a>
+
+    <!-- COLUMN 3 -->
+    <a class="card card-col3-top card-tall" href="Aisekai.html">
+      <video autoplay muted loop playsinline src="assets/aisekai.mp4"></video>
+      <div class="card-info">
+        <h3 class="card-title">Aisekai</h3>
+        <p class="card-sub">Dive into AI-powered entertainment chats. Engage with AI companions for endless interactive possibilities</p>
+      </div>
+      <div class="chip-group">
+        <div class="chip">AI CHAT</div>
+        <div class="chip year">2023</div>
+        <div class="chip custom">🌟 49M+ AVG. ENGAGEMENT</div>
+      </div>
+      
+    </a>
+
+    <a class="card card-col3-bottom card-short" href="Coindee.html">
+      <video autoplay muted loop playsinline src="assets/cryptomind.mov"></video>
+      <div class="card-info">
+        <h3 class="card-title">Coindee</h3>
+        <p class="card-sub">Digital Asset Advisory Service Application</p>
+      </div>
+      <div class="chip-group">
+        <div class="chip">CRYPTO</div>
+        <div class="chip year">2023</div>
+      </div>    
+    </a>
+
+  </main>
+
+</div>
+<script>
+  
+document.querySelectorAll("a.card").forEach(card => {
+  card.addEventListener("click", e => {
+
+    // intercept ทุกครั้ง
+    e.preventDefault();
+
+    const url = card.getAttribute("href");
+
+    const portal = document.getElementById("portalEffect");
+
+    // helper: cleanup animation/state
+    const resetPortal = () => {
+      if (!portal) return;
+      portal.style.display = "none";
+      portal.style.removeProperty("--cx");
+      portal.style.removeProperty("--cy");
+    };
+
+    // ❌ invalid / non-navigation link
+    if (!url || url === "#" || url.startsWith("javascript")) {
+      resetPortal();
+      return;
+    }
+
+    // normalize url (กัน hash)
+    const cleanUrl = url.split("#")[0];
+
+    const rect = card.getBoundingClientRect();
+    portal.style.setProperty("--cx", rect.left + rect.width / 2 + "px");
+    portal.style.setProperty("--cy", rect.top + rect.height / 2 + "px");
+    portal.style.display = "block";
+
+    let navigated = false;
+    const go = () => {
+      if (navigated) return;
+      navigated = true;
+      window.location.replace(cleanUrl);
+    };
+
+    portal.addEventListener("animationend", go, { once: true });
+    setTimeout(go, 1200);
+  });
+});
+
+</script>
+</body>
+</html>
