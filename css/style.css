@@ -349,6 +349,23 @@ body.is-transitioning {
   }
 } */
 
+.card-media {
+  position: relative;
+}
+.card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card img.card-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* ครอบเต็มการ์ด */
+  object-position: center;  /* จัดกึ่งกลาง */
+  display: block;
+}
+
+
 /* ===============================
    MOBILE (Index page)
    =============================== */
